@@ -54,22 +54,21 @@ When CLK = 0, the comparator operates in reset mode, M0 and M5 are off so the c
 
 
 ## Specification challenges:
-The chosen topology rail-to-rail operation is relatively easy, as there is no need for constant bandwidth for the full range common-mode input voltage. No input voltage offset was requested, so the major area constraint specification will be dictated by the transistors flicker noise.
+In analyzing the performance of our dynamic comparator circuit, it's evident that the majority of the specifications outlined have been satisfactorily met, signaling a promising achievement in its design and functionality. 
 
-The biggest constraint resulting from the demanded specifications is the minimum voltage supply. The amplifier should be able to use only 300 uA no load, and 1.8 mA with a 5 kOhm maximum load. The main limitation of the class AB output stage is the supply voltage needed to deliver an excess current of 1.5 mA and still function properly with a 3.0 V minimum voltage supply for SS corner at -40 °C.
+However, a notable limitation persists, primarily centered around the input common mode range. As stipulated by the requirements, it's imperative for the input common mode range to span from 5% to 95% relative to VDD. Regrettably, our current circuit configuration falls short in this aspect, as the ratio of the input common mode range to VDD remains significantly lower than desired due to the inherently limited range of the input common mode. 
+
+This shortfall poses a considerable challenge, necessitating further exploration and refinement to ensure compliance with the specified operational parameters and to enhance the circuit's overall performance and versatility.
 
 ## Testbenches required for verifying circuit performance:
-The simulation testbenches cover mostly DC and AC performance characterization (DC gain, input and output range, power consumption, output current, bandwidth, phase margin, PSRR, CMRR, input referred noise), and transient ones (THD, slew-rate). All those simulation testbenches are available at the original article’s repository [1], based on the diagram available at [3]. 
+The simulation testbenches cover mostly DC and AC performance characterization (input and output range, power consumption, output current, bandwidth, PSRR, CMRR). 
 
 ## Connections required for standalone (breakout) implementation:
-The actual circuit input pins should be located as close as possible to the pads. The parasitic input current is mostly composed of the ESD protection. The output current can be quite high, so extra care must be taken for the output node and the supply nets of the output stage.
-
-Current consumption measurements are only possible if the circuit has a dedicated power supply pin. If the circuit is working as intended, the current consumption can be inferred by the biasing current, which certainly will be measured from the on-chip standalone current bias generator. ATB points could be inserted to measure the biasing voltages, but are not strictly necessary.
-
+The circuit uses a VDD pin for stable voltage supply, connecting stages 1 and 2 using two dedicated pins, out1n and out1p. These pins act as both outputs and inputs, facilitating seamless signal transfer and processing. The outputs are channeled out via two output pins, out2n and out2p, to the gate terminals of M8 and M10, and out2p to the gate terminals of M9 and M11. One output pin measures the VDD voltage, while the other gauges a voltage of 0V at the auxiliary battery for performance monitoring. The CLK battery is connected to MOSFET gate terminals to regulate timing and ensure synchronous operation. The CLK signal is configured as a square pulse waveform, with a low voltage of 0V and a high voltage corresponding to VDD at various frequencies such as 10kHz, 20kHz, 30kHz…Additionally, the rise and fall times of the CLK signal are precisely controlled to maintain temporal integrity, with both rising and falling edges exhibiting a consistent transition time of 100ns. This comprehensive configuration ensures optimal performance, precise timing control, and robust signal processing capabilities within the circuit.
 ## Test plan for standalone (breakout) implementation:
-The proposed circuit, an operational amplifier, can be tested in most university labs, with conventional oscilloscopes. The proposed circuit specifications do not require high speed, ultra-low-noise, and ultra-low-current measurement equipment. Detailed measurement guidelines can be found in Analog Devices tutorials [4], among many other references.
-
+The proposed circuit, an operational amplifier, can be tested in university labs, with conventional oscilloscopes. The proposed circuit will be tested with input offset, power consumption and frequency bandwidth.
 ## References
 [1] S. Aakash, A. Anisha, G. Jaswanth Das, T. Abhiram and J. P. Anita. "Design of a low power, high speed double tail comparator" 2017 International Conference on circuits Power and Computing Technologie. https://ieeexplore.ieee.org/document/8074370
 [2] Shivam Singh Baghel and D. K. Mishra. "Design and Analysis of Double-Tail Dynamic Comparator for Flash ADCs" 2018 International Conference on Circuits and Systems in Digital Enterprise Technology. https://ieeexplore.ieee.org/document/8821129
+
 
