@@ -45,7 +45,7 @@ If the top level designer should choose to implement an analog test bus (ATB), t
 
 ## Circuit architecture:
 The chosen ultra-low comparator topology is based on the double tail comparator publish in [1]. The main difference is that the double tail comparator has two stage: the pre-amplifier stage has small current for week inversion and obtain long integration interval and better Gm/I ratio; latch stage has a large tail current for fast regeneration, as in [2]. Besides, this circuit do not need a high input voltage or stacking of too many transistors as others dynamic comparator, and latch stage has positive feedback so that it can meet the required speed in the ADCs.
-![ULP_COM](https://github.com/vietduc1210/EFAB_ULP_COM/assets/41568734/88bc9270-9728-4b2c-bb1b-54e92a500dd1)
+!["Double tail comparator schematic"](https://github.com/vietduc1210/EFAB_ULP_COM/assets/41568734/88bc9270-9728-4b2c-bb1b-54e92a500dd1)
 
 Two stages are controlled by a pair of counter-phase clock signals, operating in two alternating phases.
 
