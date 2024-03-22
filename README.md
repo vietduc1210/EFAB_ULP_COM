@@ -46,7 +46,10 @@ If the top level designer should choose to implement an analog test bus (ATB), t
 ## Circuit architecture:
 The chosen ultra-low comparator topology is based on the double tail comparator publish in [1]. The main difference is that the double tail comparator has two stage: the pre-amplifier stage has small current for week inversion and obtain long integration interval and better Gm/I ratio; latch stage has a large tail current for fast regeneration, as in [2]. Besides, this circuit do not need a high input voltage or stacking of too many transistors as others dynamic comparator, and latch stage has positive feedback so that it can meet the required speed in the ADCs.
 ![ULP_COM](https://github.com/vietduc1210/EFAB_ULP_COM/assets/41568734/88bc9270-9728-4b2c-bb1b-54e92a500dd1)
+
 Two stages are controlled by a pair of counter-phase clock signals, operating in two alternating phases.
+
+
 When CLK = 0, the comparator operates in reset mode, M0 and M5 are off so the circuit does not consume power in this phase. M3 and M4 are turned on, pulling the output voltage of stage 1 VO1P and VO1N to a high VDD level creating initial conditions for the next phase. Similarly, M6 and M7 are turned on pulling the outputs of stage 2 VO2P and VO2N to ground. When CLK = VDD, the circuit enters the comparison phase. M0 is turned on while M3 and M4 are turned off, the voltages VO1P and VO1N on the parasitic capacitor at the output of stage 1 are discharged to ground through M1 and M2. The difference between the two input signals will create a difference in the current flowing through the two branches of stage 1, creating a different voltage discharge rate between the two output voltages. The output of pre-amplifer stage is fed into the next stage through M6 and M7. M5 is on, latch stage is active, the pair M8, M10 and M9, M11 crossed (cross coupled) are tasked with pushing one of the two output points of stage 2 to VDD level while the other output goes to ground.
 
 
