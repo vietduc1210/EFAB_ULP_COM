@@ -71,6 +71,7 @@ The circuit uses a VDD pin for stable voltage supply, connecting stages 1 and 2 
 The proposed circuit, an operational amplifier, can be tested in university labs, with conventional oscilloscopes. The proposed circuit will be tested with input offset, power consumption and frequency bandwidth.
 ## References
 [1] S. Aakash, A. Anisha, G. Jaswanth Das, T. Abhiram and J. P. Anita. "Design of a low power, high speed double tail comparator" 2017 International Conference on circuits Power and Computing Technologie. https://ieeexplore.ieee.org/document/8074370
+
 [2] Shivam Singh Baghel and D. K. Mishra. "Design and Analysis of Double-Tail Dynamic Comparator for Flash ADCs" 2018 International Conference on Circuits and Systems in Digital Enterprise Technology. https://ieeexplore.ieee.org/document/8821129
 
 
