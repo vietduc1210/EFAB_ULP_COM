@@ -1,7 +1,9 @@
 # Proposal for IP block development for the Efabless 2024 Chipalooza challenge
 
-IP Block name:		Ultra low-power comparator					
+IP Block name:		Ultra low-power comparator
+
 Designer/Design Team:	BKIC 2 team
+
 Date:				March 22, 2024
 
 ## Circuit description:
