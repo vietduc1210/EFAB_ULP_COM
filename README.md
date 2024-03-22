@@ -44,7 +44,7 @@ The proposed circuit is a ultra low-power comparator designed for SkyWater 130 n
 If the top level designer should choose to implement an analog test bus (ATB), the circuit would require extra pins to select the internal voltage nodes to be measured. A good idea should be to add an extra pin to choose between the on-chip biasing currents and an external one. Another possibility is to add an offset voltage trimming pin, but the extra circuit will add complexity and area usage.
 
 ## Circuit architecture:
-The chosen ultra-low comparator topology is based on the double tail comparator publish in [1]. The main difference is that the double tail comparator has two stage: the pre-amplifier stage has small current for week inversion and obtain long integration interval and better Gm/I ratio; latch stage has a large tail current for fast regeneration, as in [2]. Besides, this circuit do not need a high input voltage or stacking of too many transistors as others dynamic comparator, and latch stage has positive feedback so that it can meet the required speed in the ADCs.
+The chosen ultra-low comparator topology is based on the double tail comparator publish in [1]. The main difference is that the double tail comparator has two stage: the pre-amplifier stage has small current for week inversion and obtain long integration interval and better Gm/I ratio; latch stage has a large tail current for fast regeneration, as in [2].
 !["Double tail comparator schematic"](https://github.com/vietduc1210/EFAB_ULP_COM/assets/41568734/88bc9270-9728-4b2c-bb1b-54e92a500dd1)
 
 Two stages are controlled by a pair of counter-phase clock signals, operating in two alternating phases.
