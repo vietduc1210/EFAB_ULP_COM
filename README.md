@@ -64,7 +64,6 @@ This shortfall poses a considerable challenge, necessitating further exploration
 
 ## Testbenches required for verifying circuit performance:
 The simulation testbenches cover mostly DC and AC performance characterization (input and output range, power consumption, output current, bandwidth, PSRR, CMRR). 
-### Power consumption
 
 ## Connections required for standalone (breakout) implementation:
 The circuit uses a VDD pin for stable voltage supply, connecting stages 1 and 2 using two dedicated pins, out1n and out1p. These pins act as both outputs and inputs, facilitating seamless signal transfer and processing. The outputs are channeled out via two output pins, out2n and out2p, to the gate terminals of M8 and M10, and out2p to the gate terminals of M9 and M11. One output pin measures the VDD voltage, while the other gauges a voltage of 0V at the auxiliary battery for performance monitoring. The CLK battery is connected to MOSFET gate terminals to regulate timing and ensure synchronous operation. The CLK signal is configured as a square pulse waveform, with a low voltage of 0V and a high voltage corresponding to VDD at various frequencies such as 10kHz, 20kHz, 30kHz…Additionally, the rise and fall times of the CLK signal are precisely controlled to maintain temporal integrity, with both rising and falling edges exhibiting a consistent transition time of 100ns. This comprehensive configuration ensures optimal performance, precise timing control, and robust signal processing capabilities within the circuit.
